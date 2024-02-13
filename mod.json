@@ -1,9 +1,9 @@
 {
 	"geode": "2.0.0-beta.16",
 	"gd": {
-        	"win": "2.204",
-        	"android": "2.205"
-    		},
+		"win": "2.204",
+		"android": "2.205"
+		},
 	"version": "v1.0.0",
 	"id": "xanii.freaky_mode",
 	"name": "FREAKY MODE",

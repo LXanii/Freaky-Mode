@@ -1,3 +1,3 @@
-# Template Mod
+# FREAKY MODE
 
-Edit about.md to change this
+Adds a very freaky button to your game settings and level settings page.
