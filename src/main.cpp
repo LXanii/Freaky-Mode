@@ -4,7 +4,7 @@
 #include <Geode/modify/PlayLayer.hpp>
 #include <Geode/modify/ShaderLayer.hpp>
 
-#include "ShaderLayer.h"
+#include "ShaderManager.h"
 
 using namespace geode::prelude;
 
@@ -20,13 +20,7 @@ void freaky::getting_freaky(CCObject*) {
 		CCArray* children = Scene->getChildren();
 		IsFreaky = !IsFreaky;
 		log::info("FREAKY {}", IsFreaky);
-		if (IsFreaky) {
-			xSLayer* SLayer = xSLayer::create();
-			for (int i = 0; i < children->count(); i++) {
-				SLayer->addChild(reinterpret_cast<CCNode*>(children->objectAtIndex(i)));
-			}
-			Scene->addChild(SLayer);
-		}
+		ShaderManager::get()->isActive = IsFreaky;
 	}
 
 class $modify(MoreOptionsLayer) {
@@ -49,6 +43,7 @@ bool freaked = true;
 
 		CCMenuItemToggler* freak_btn = CCMenuItemToggler::create(CCSprite::createWithSpriteFrameName("GJ_checkOff_001.png"), CCSprite::createWithSpriteFrameName("GJ_checkOn_001.png"), this, menu_selector(freaky::getting_freaky));
 		freak_btn->setScale(0.82);
+		freak_btn->toggle(IsFreaky);
 		freak_menu->setPosition({125,46.8});
 		freak_menu->addChild(freak_btn);
 		layer2->addChild(freak_menu);
@@ -69,8 +64,9 @@ CCSprite * FREAKY;
 
 		CCMenu* freak_menu = CCMenu::create();
 
-		CCMenuItemToggler* freak_btn = CCMenuItemToggler::create(CCSprite::createWithSpriteFrameName("GJ_checkOn_001.png"), CCSprite::createWithSpriteFrameName("GJ_checkOff_001.png"), this, menu_selector(freaky::getting_freaky));
+		CCMenuItemToggler* freak_btn = CCMenuItemToggler::create(CCSprite::createWithSpriteFrameName("GJ_checkOff_001.png"), CCSprite::createWithSpriteFrameName("GJ_checkOn_001.png"), this, menu_selector(freaky::getting_freaky));
 		freak_btn->setScale(0.82);
+		freak_btn->toggle(IsFreaky);
 		freak_menu->setPosition({125,182.8});
 		freak_menu->addChild(freak_btn);
 		addChild(m_fields->FREAKY);
