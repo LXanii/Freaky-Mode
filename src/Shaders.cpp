@@ -33,7 +33,7 @@ const char* FRAGMENT_SHADER = APP_SHADER_SOURCE(
 
         vec3 freakyColor = mix(vec3(0.79, 0.22, 0.69), vec3(0.97, 0.09, 0.27), v_texCoord.x);
         vec3 freakierColor = mix(vec3(0.0), freakyColor, v_texCoord.y * v_texCoord.y);
-        vec3 freakiestColor = mix(c.rgb, freakierColor, distance(v_texCoord, vec2(0.5)));
+        vec3 freakiestColor = mix(c.rgb, freakierColor, 1.5 * distance(v_texCoord, vec2(0.5)));
 
         gl_FragColor = vec4(freakiestColor, 1.0);
     }
