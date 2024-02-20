@@ -6,6 +6,7 @@
 	"name": "FREAKY MODE",
 	"developer": "Xanii",
 	"description": ":tounge:",
+	"repository": "https://github.com/LXanii/Freaky-Mode",
 	"resources": {
         "sprites": [
             "resources/*.png"
