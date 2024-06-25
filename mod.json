@@ -1,14 +1,31 @@
 {
-	"geode": "2.0.0-beta.16",
-	"gd": "2.204",
-	"version": "v1.0.0",
+	"geode": "3.0.0-beta.5",
+	"gd": {
+		"win": "2.206"
+	},
+	"version": "v1.1.0",
 	"id": "xanii.freaky_mode",
 	"name": "FREAKY MODE",
 	"developer": "Xanii",
+	"settings": {
+		"display-rio": {
+			"name": "display rio",
+			"description": "rio de janeiro",
+			"type": "bool",
+			"default": true
+		}
+	},
+	"tags": ["joke"],
 	"description": ":tounge:",
 	"resources": {
         "sprites": [
             "resources/*.png"
-        ]
+        ],
+		"fonts": {
+			"papyrus": {
+				"path": "resources/papyrus.ttf",
+				"size": 75
+			}
+		}
     }
 }

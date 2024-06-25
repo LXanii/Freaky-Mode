@@ -25,8 +25,10 @@ void freaky::getting_freaky(CCObject*) {
 
 class $modify(MoreOptionsLayer) {
 
-CCSprite * FREAKY;
-bool freaked = true;
+	struct Fields {
+		CCSprite * FREAKY;
+		bool freaked = true;
+	};
 
 	bool init() {
 		bool result = MoreOptionsLayer::init();
@@ -54,7 +56,9 @@ bool freaked = true;
 
 class $modify(GameLevelOptionsLayer) {
 
-CCSprite * FREAKY;
+	struct Fields {
+		CCSprite* FREAKY;
+	};
 
 	void setupOptions() {
 		GameLevelOptionsLayer::setupOptions();
@@ -72,5 +76,27 @@ CCSprite * FREAKY;
 		addChild(m_fields->FREAKY);
 		addChild(freak_menu);
 		handleTouchPriority(this);
+	}
+};
+
+class $modify(PlayLayer) {
+
+	struct Fields {
+		CCLabelBMFont* rio;
+	};
+
+	bool init(GJGameLevel* p0, bool p1, bool p2) {
+		bool result = PlayLayer::init(p0, p1, p2);
+		auto director = CCDirector::sharedDirector();
+		auto size = director->getWinSize();
+		if (IsFreaky) {
+			if (Mod::get()->getSettingValue<bool>("display-rio")) {
+				m_fields->rio = CCLabelBMFont::create("Rio De Janeiro", "papyrus.fnt"_spr);
+				m_fields->rio->setPosition({size.width / 2, size.height / 2});
+				m_fields->rio->setScale(2.0);
+				this->addChild(m_fields->rio);
+			}
+		}
+		return result;
 	}
 };
