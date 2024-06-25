@@ -7,25 +7,11 @@
 	"id": "xanii.freaky_mode",
 	"name": "FREAKY MODE",
 	"developer": "Xanii",
-	"settings": {
-		"display-rio": {
-			"name": "display rio",
-			"description": "rio de janeiro",
-			"type": "bool",
-			"default": true
-		}
-	},
 	"tags": ["joke"],
 	"description": ":tounge:",
 	"resources": {
         "sprites": [
             "resources/*.png"
-        ],
-		"fonts": {
-			"papyrus": {
-				"path": "resources/papyrus.ttf",
-				"size": 75
-			}
-		}
+        ]
     }
 }
