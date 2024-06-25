@@ -19,7 +19,6 @@ void freaky::getting_freaky(CCObject*) {
 		CCScene* Scene = CCDirector::sharedDirector()->getRunningScene();
 		CCArray* children = Scene->getChildren();
 		IsFreaky = !IsFreaky;
-		log::info("FREAKY {}", IsFreaky);
 		ShaderManager::get()->isActive = IsFreaky;
 	}
 
